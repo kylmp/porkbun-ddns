@@ -1,0 +1,33 @@
+# Porkbun API keys (Get from your porkbun account)
+PORKBUN_API_KEY="pk1_xxxxx"
+PORKBUN_API_SECRET="sk1_xxxxx"
+
+# Where to store last known IP (Update according to your filesystem)
+IP_FILE="/root/porkbun-ddns/current_ip.txt"
+
+# Where to write a status summary (Update according to your filesystem)
+STATUS_FILE="/root/porkbun-ddns/status.txt"
+
+# Porkbun API base URL
+PORKBUN_API_BASE="https://api.porkbun.com/api/json/v3"
+
+# Records to update:
+#
+# Warning: DNS records must already be created in porkbun before running!
+#
+# Format per line: "DOMAIN TTL TYPE SUBDOMAIN"
+#
+# TYPE: DNS record type (If unsure, use A)
+#
+# SUBDOMAIN:
+#   @  -> root (apex) record
+#   *  -> wildcard
+#   foo -> foo.DOMAIN
+#
+# TTL: Number (If unsure, use 600)
+#
+RECORDS=(
+  "example.com 300 A @"        # root:     example.com
+  "howdy.com 300 A *"          # wildcard: *.howdy.com
+  "mydomain.com 300 A home"    # host:     home.mydomain.com
+)
