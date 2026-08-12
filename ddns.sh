@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-CONFIG="/root/porkbun-ddns/ddns.conf"
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+CONFIG="${SCRIPT_DIR}/ddns.conf"
 
 if [ ! -r "$CONFIG" ]; then
   echo "Config file not found or not readable: $CONFIG" >&2
